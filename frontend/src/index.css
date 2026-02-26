@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Light mode (fallback, app is dark-first) */
+    --background: 0.12 0.005 260;
+    --foreground: 0.97 0.005 80;
+    --card: 0.16 0.006 260;
+    --card-foreground: 0.97 0.005 80;
+    --popover: 0.18 0.006 260;
+    --popover-foreground: 0.97 0.005 80;
+    --primary: 0.78 0.14 75;
+    --primary-foreground: 0.10 0.005 260;
+    --secondary: 0.22 0.008 260;
+    --secondary-foreground: 0.90 0.005 80;
+    --muted: 0.20 0.006 260;
+    --muted-foreground: 0.58 0.01 260;
+    --accent: 0.78 0.14 75;
+    --accent-foreground: 0.10 0.005 260;
+    --destructive: 0.60 0.22 25;
+    --destructive-foreground: 0.97 0.005 80;
+    --border: 0.28 0.008 260 / 60%;
+    --input: 0.22 0.008 260 / 80%;
+    --ring: 0.78 0.14 75;
+
+    --chart-1: 0.78 0.14 75;
+    --chart-2: 0.65 0.18 160;
+    --chart-3: 0.60 0.20 250;
+    --chart-4: 0.72 0.16 30;
+    --chart-5: 0.68 0.18 300;
+
+    --sidebar: 0.10 0.005 260;
+    --sidebar-foreground: 0.90 0.005 80;
+    --sidebar-primary: 0.78 0.14 75;
+    --sidebar-primary-foreground: 0.10 0.005 260;
+    --sidebar-accent: 0.18 0.008 260;
+    --sidebar-accent-foreground: 0.90 0.005 80;
+    --sidebar-border: 0.25 0.008 260 / 50%;
+    --sidebar-ring: 0.78 0.14 75;
+
+    /* Gold accent token */
+    --gold: 0.78 0.14 75;
+    --gold-dim: 0.65 0.12 75;
+    --gold-bright: 0.88 0.16 80;
+  }
+
+  .dark {
+    --background: 0.10 0.005 260;
+    --foreground: 0.97 0.005 80;
+    --card: 0.14 0.006 260;
+    --card-foreground: 0.97 0.005 80;
+    --popover: 0.16 0.006 260;
+    --popover-foreground: 0.97 0.005 80;
+    --primary: 0.78 0.14 75;
+    --primary-foreground: 0.10 0.005 260;
+    --secondary: 0.20 0.008 260;
+    --secondary-foreground: 0.90 0.005 80;
+    --muted: 0.18 0.006 260;
+    --muted-foreground: 0.55 0.01 260;
+    --accent: 0.78 0.14 75;
+    --accent-foreground: 0.10 0.005 260;
+    --destructive: 0.60 0.22 25;
+    --destructive-foreground: 0.97 0.005 80;
+    --border: 0.28 0.008 260 / 50%;
+    --input: 0.22 0.008 260 / 70%;
+    --ring: 0.78 0.14 75;
+
+    --chart-1: 0.78 0.14 75;
+    --chart-2: 0.65 0.18 160;
+    --chart-3: 0.60 0.20 250;
+    --chart-4: 0.72 0.16 30;
+    --chart-5: 0.68 0.18 300;
+
+    --sidebar: 0.08 0.005 260;
+    --sidebar-foreground: 0.90 0.005 80;
+    --sidebar-primary: 0.78 0.14 75;
+    --sidebar-primary-foreground: 0.10 0.005 260;
+    --sidebar-accent: 0.16 0.008 260;
+    --sidebar-accent-foreground: 0.90 0.005 80;
+    --sidebar-border: 0.22 0.008 260 / 50%;
+    --sidebar-ring: 0.78 0.14 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, oklch(0.78 0.14 75), oklch(0.88 0.16 80), oklch(0.72 0.12 65));
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, oklch(0.78 0.14 75), oklch(0.92 0.18 82));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-glow {
+    box-shadow: 0 0 0 1px oklch(0.78 0.14 75 / 0.15), 0 4px 24px oklch(0.78 0.14 75 / 0.08);
+  }
+
+  .card-glow-hover:hover {
+    box-shadow: 0 0 0 1px oklch(0.78 0.14 75 / 0.35), 0 8px 32px oklch(0.78 0.14 75 / 0.15);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.28 0.008 260) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: oklch(0.28 0.008 260);
+    border-radius: 2px;
+  }
+
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 oklch(0.78 0.14 75 / 0.4); }
+    70% { box-shadow: 0 0 0 10px oklch(0.78 0.14 75 / 0); }
+    100% { box-shadow: 0 0 0 0 oklch(0.78 0.14 75 / 0); }
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 1.5s ease-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent 0%, oklch(0.78 0.14 75 / 0.1) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "BizForge AI – a professional branding and marketing AI platform with multiple AI-powered tools including brand name generation, logo concept generation, marketing content creation, sentiment analysis, color palette generation, an AI branding chatbot, and voice input support.",
+  "architectural_notes": [
+    "All AI features use templated prompts with dynamic placeholders (e.g., {industry}, {tone}, {brand_name})",
+    "BizForge AI chatbot serves as the core branding consultant persona across multiple features"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- BizForge AI wordmark logo — bold stylized text with an abstract forge/flame icon in gold on a dark background (bizforge-logo.dim_400x120.png)\n- Hero background texture — dark charcoal abstract geometric pattern with subtle gold gradient highlights, suitable for app header (hero-bg.dim_1440x320.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-brand-name-generator-tool-that-accepts-three-inputs-industry-main-keywords-and-brand-tone-and-returns-15-unique-creative-short-1-2-word-easy-to-pronounce-modern-brand-name-suggestions-as-a-numbered-list-the-generation-logic-must-avoid-generic-terms-like-tech-solutions-or-company",
+      "title": "Create a Brand Name Generator tool that accepts three inputs — Industry, Main Keywords, and Brand Tone — and returns 15 unique, creative, short (1–2 word), easy-to-pronounce, modern brand name suggestions as a numbered list. The generation logic must avoid generic terms like 'Tech', 'Solutions', or 'Company'.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-logo-concept-generator-tool-that-accepts-brand-name-industry-and-brand-personality-tone-as-inputs-and-returns-a-detailed-logo-concept-description-including-logo-style-suggested-primary-and-secondary-colors-icon-or-symbol-concept-font-style-recommendation-and-background-style-suggestion",
+      "title": "Create a Logo Concept Generator tool that accepts Brand Name, Industry, and Brand Personality/Tone as inputs and returns a detailed logo concept description including: logo style, suggested primary and secondary colors, icon or symbol concept, font style recommendation, and background style suggestion.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-marketing-content-generator-tool-that-accepts-brand-name-product-service-description-target-audience-and-tone-as-inputs-and-returns-1-a-150-word-product-description-2-a-short-advertisement-copy-and-3-three-instagram-captions-with-hashtags-all-content-must-be-persuasive-engaging-and-include-a-strong-call-to-action",
+      "title": "Create a Marketing Content Generator tool that accepts Brand Name, Product/Service Description, Target Audience, and Tone as inputs and returns: (1) a 150-word product description, (2) a short advertisement copy, and (3) three Instagram captions with hashtags. All content must be persuasive, engaging, and include a strong call-to-action.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-sentiment-analysis-tool-where-the-user-can-paste-a-customer-review-text-the-tool-classifies-the-sentiment-as-positive-negative-or-neutral-and-provides-a-1-2-sentence-explanation-of-why",
+      "title": "Create a Sentiment Analysis tool where the user can paste a customer review text. The tool classifies the sentiment as Positive, Negative, or Neutral and provides a 1–2 sentence explanation of why.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-color-palette-generator-tool-that-accepts-industry-and-brand-personality-tone-as-inputs-and-returns-a-professional-color-palette-with-1-primary-color-hex-2-secondary-colors-hex-1-accent-color-hex-and-a-brief-emotional-meaning-explanation-for-each-color",
+      "title": "Create a Color Palette Generator tool that accepts Industry and Brand Personality/Tone as inputs and returns a professional color palette with: 1 primary color (HEX), 2 secondary colors (HEX), 1 accent color (HEX), and a brief emotional meaning explanation for each color.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-ai-branding-chatbot-interface-named-bizforge-ai-where-users-can-type-any-business-or-branding-question-and-receive-structured-responses-including-an-explanation-practical-steps-and-real-world-marketing-tips-responses-must-avoid-generic-answers",
+      "title": "Create an AI Branding Chatbot interface named 'BizForge AI' where users can type any business or branding question and receive structured responses including an explanation, practical steps, and real-world marketing tips. Responses must avoid generic answers.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-voice-input-feature-that-records-the-user-s-speech-converts-it-to-text-and-automatically-passes-the-converted-text-into-the-bizforge-ai-branding-chatbot-for-processing-and-a-professional-branding-response",
+      "title": "Add a Voice Input feature that records the user's speech, converts it to text, and automatically passes the converted text into the BizForge AI Branding Chatbot for processing and a professional branding response.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-the-overall-application-with-a-sleek-dark-themed-branding-studio-aesthetic-think-deep-charcoal-near-black-backgrounds-warm-gold-and-amber-accent-colors-crisp-white-typography-and-subtle-gradient-highlights-the-layout-should-use-a-sidebar-navigation-to-switch-between-the-7-tools-with-each-tool-presented-as-a-clean-card-based-workspace-typography-should-feel-premium-and-editorial",
+      "title": "Design the overall application with a sleek, dark-themed branding studio aesthetic — think deep charcoal/near-black backgrounds, warm gold and amber accent colors, crisp white typography, and subtle gradient highlights. The layout should use a sidebar navigation to switch between the 7 tools, with each tool presented as a clean card-based workspace. Typography should feel premium and editorial.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Brand Name Generator: generates 15 unique brand names based on industry, keywords, and tone",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Logo Generator: creates detailed logo concepts including style, colors, icon, font, and background suggestions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Marketing Content Generator: produces product descriptions, ad copy, and Instagram captions with hashtags",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Sentiment Analysis: classifies customer reviews as Positive, Negative, or Neutral with explanation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Color Palette Generator: suggests brand color palettes with HEX codes and emotional meaning explanations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "AI Branding Chatbot (BizForge AI): answers business/branding questions with structured advice and marketing tips",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Voice Input: converts speech to text and processes it through BizForge AI for branding responses",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "BizForge AI",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

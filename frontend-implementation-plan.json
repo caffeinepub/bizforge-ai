@@ -1,0 +1,192 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "BizForge AI – Branding & Marketing Platform Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create Brand Name Generator tool with Industry, Main Keywords, and Brand Tone inputs that returns 15 unique brand name suggestions",
+      "acceptanceCriteria": [
+        "User can enter Industry, Keywords, and Brand Tone in a form",
+        "Submitting the form produces a numbered list of 15 brand name suggestions",
+        "Generated names are short (1–2 words), avoid generic terms, and reflect the provided inputs"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tools/BrandNameGenerator.tsx",
+          "operation": "create",
+          "description": "Create a Brand Name Generator component with form inputs for Industry (text), Main Keywords (text), and Brand Tone (dropdown with options: innovative, playful, modern, trustworthy, luxury). On submit, call backend.generateBrandNames() and display the returned array of 15 names as a numbered list. Include loading state and error handling. Use shadcn/ui form components for consistent styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the BrandNameGenerator component into the router/navigation structure so it is accessible from the sidebar navigation as 'Brand Name Generator'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create Logo Concept Generator tool that produces detailed logo concept descriptions with style, colors, icon concept, font, and background recommendations",
+      "acceptanceCriteria": [
+        "User can enter Brand Name, Industry, and Brand Personality inputs",
+        "Output includes all five required sections: logo style, colors, icon concept, font recommendation, background style",
+        "Output is clearly structured so a designer can act on it"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tools/LogoConceptGenerator.tsx",
+          "operation": "create",
+          "description": "Create a Logo Concept Generator component with form inputs for Brand Name (text), Industry (text), and Brand Personality (dropdown with BrandTone enum values). On submit, call backend.generateLogoConcept() and display the returned LogoConcept with clearly labeled sections: Logo Style, Primary Color (with HEX swatch), Secondary Colors (with HEX swatches), Icon Concept, Font Style, and Background Style. Use shadcn/ui Card and Badge components for visual presentation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the LogoConceptGenerator component into the router/navigation so it is accessible from the sidebar as 'Logo Concept Generator'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create Marketing Content Generator tool that produces product description, ad copy, and Instagram captions with hashtags",
+      "acceptanceCriteria": [
+        "User can input Brand Name, Description, Audience, and Tone",
+        "Output contains three labeled sections: product description (~150 words), ad copy, and three Instagram captions",
+        "Each caption includes relevant hashtags and a call-to-action"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tools/MarketingContentGenerator.tsx",
+          "operation": "create",
+          "description": "Create a Marketing Content Generator component with form inputs for Brand Name (text), Product/Service Description (textarea), Target Audience (text), and Tone (dropdown with BrandTone enum values). On submit, call backend.generateMarketingContent() and display the returned MarketingContent with three clearly labeled sections: Product Description, Advertisement Copy, and Instagram Captions (numbered list with captions and hashtags). Use shadcn/ui Textarea and Card components."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the MarketingContentGenerator component into the router/navigation so it is accessible from the sidebar as 'Marketing Content Generator'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create Sentiment Analysis tool that classifies customer review text as Positive, Negative, or Neutral with explanation",
+      "acceptanceCriteria": [
+        "User can input free-form review text",
+        "Output clearly labels the sentiment as Positive, Negative, or Neutral",
+        "Output includes a 1–2 sentence explanation justifying the classification"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tools/SentimentAnalyzer.tsx",
+          "operation": "create",
+          "description": "Create a Sentiment Analyzer component with a textarea for customer review text input. On submit, call backend.analyzeSentiment() and display the returned Sentiment with clear visual indication of the sentimentType (use color-coded badges: green for positive, red for negative, gray for neutral) and the explanation text below. Use shadcn/ui Textarea and Badge components."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the SentimentAnalyzer component into the router/navigation so it is accessible from the sidebar as 'Sentiment Analysis'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create Color Palette Generator tool that produces professional color palettes with HEX codes and emotional meanings",
+      "acceptanceCriteria": [
+        "User can enter Industry and Brand Personality",
+        "Output shows 4 colors with their HEX codes and visual color swatches",
+        "Each color is accompanied by a brief emotional meaning explanation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tools/ColorPaletteGenerator.tsx",
+          "operation": "create",
+          "description": "Create a Color Palette Generator component with form inputs for Industry (text) and Brand Personality (dropdown with BrandTone enum values). On submit, call backend.generateColorPalette() and display the returned ColorPalette with visual color swatches for primaryColor, secondaryColors array, and accentColor. Show HEX codes alongside each swatch and display the corresponding colorMeanings array entries. Use shadcn/ui Card components and custom color swatch divs styled with the HEX values."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the ColorPaletteGenerator component into the router/navigation so it is accessible from the sidebar as 'Color Palette Generator'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create BizForge AI Branding Chatbot interface with structured responses including explanation, steps, and marketing tips",
+      "acceptanceCriteria": [
+        "User can type a branding or business question into a chat-style interface",
+        "BizForge AI responds with a structured answer containing explanation, steps, and marketing tips",
+        "Chat history is displayed in a readable conversation format"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/tools/BrandingChatbot.tsx",
+          "operation": "create",
+          "description": "Create a Branding Chatbot component with a chat-style interface showing message history (user questions and BizForge AI responses). Include a text input for typing questions and a send button. On submit, call backend.askChatbot() and display the returned ChatbotResponse with clearly formatted sections: Explanation, Practical Steps, and Marketing Tips. Maintain chat history in component state. Use shadcn/ui Input, Button, and ScrollArea components for the chat interface."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the BrandingChatbot component into the router/navigation so it is accessible from the sidebar as 'BizForge AI Chatbot'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add Voice Input feature using Web Speech API that converts speech to text and submits to BizForge AI chatbot",
+      "acceptanceCriteria": [
+        "A microphone/voice input button is visible in the BizForge AI chatbot interface",
+        "Clicking it starts recording the user's speech",
+        "On completion, the speech is converted to text and submitted as a chatbot query",
+        "The chatbot returns a branding-focused response based on the transcribed text"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useSpeechRecognition.ts",
+          "operation": "create",
+          "description": "Create a custom React hook that wraps the browser's Web Speech API (window.webkitSpeechRecognition or window.SpeechRecognition). Return functions to start/stop recording, current transcript state, isRecording state, and error state. Handle browser compatibility checks and permission errors gracefully."
+        },
+        {
+          "path": "frontend/src/components/tools/BrandingChatbot.tsx",
+          "operation": "modify",
+          "description": "Import and integrate the useSpeechRecognition hook into the BrandingChatbot component. Add a microphone button (using a mic icon from lucide-react) next to the text input. When clicked, start speech recognition; when stopped, automatically populate the text input with the transcript and submit the question to the chatbot. Show visual feedback (e.g., pulsing mic icon) while recording. Handle errors by displaying user-friendly messages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Design application with dark-themed branding studio aesthetic featuring sidebar navigation, card-based tool workspaces, and premium typography",
+      "acceptanceCriteria": [
+        "Application uses a consistent dark theme with gold/amber accents throughout",
+        "Sidebar navigation allows switching between all 7 tools",
+        "Each tool section is visually distinct but cohesively styled",
+        "Typography and spacing convey a premium, professional branding studio feel"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global CSS custom properties to implement the dark branding studio theme: set deep charcoal/near-black backgrounds (e.g., #0f0f0f, #1a1a1a), warm gold/amber accent colors (e.g., #d4af37, #f59e0b), crisp white typography (#ffffff), and subtle gradient highlights. Configure Tailwind CSS variables for consistent theming across components. Ensure premium editorial typography using font-weight and letter-spacing adjustments."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration to include custom color palette for the dark branding studio theme: define charcoal/black background colors, gold/amber accent colors, and ensure proper contrast ratios. Add custom font family configuration for premium typography (e.g., Inter, Outfit, or similar modern sans-serif). Configure spacing scale for editorial feel."
+        },
+        {
+          "path": "frontend/src/components/layout/Sidebar.tsx",
+          "operation": "create",
+          "description": "Create a Sidebar navigation component listing all 7 tools: Brand Name Generator, Logo Concept Generator, Marketing Content Generator, Sentiment Analysis, Color Palette Generator, BizForge AI Chatbot, and the voice input feature (integrated in chatbot). Use lucide-react icons for each tool. Apply dark theme styling with gold/amber highlights for active states. Use shadcn/ui navigation components where applicable. Include the BizForge AI logo (frontend/public/assets/generated/bizforge-logo.dim_400x120.png) at the top of the sidebar."
+        },
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "create",
+          "description": "Create an AppLayout component that combines the Sidebar with a main content area. Use CSS Grid or Flexbox for responsive layout. Apply the hero background texture (frontend/public/assets/generated/hero-bg.dim_1440x320.png) to the header area above the main workspace. Ensure the layout is cohesive with the dark branding studio theme and provides consistent spacing and card-based styling for tool workspaces."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the application routing structure with the AppLayout component to ensure consistent layout and navigation across all tool pages. Configure React Router to switch between tool components based on sidebar selection. Ensure all 7 tools are routed and accessible."
+        }
+      ]
+    }
+  ]
+}

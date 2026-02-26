@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global CSS with OKLCH dark-theme color system featuring deep charcoal backgrounds, warm gold/amber accents, custom Outfit/Inter font imports, and utility classes for gold gradients, card glow effects, and animations.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Outfit/Inter font families, gold color tokens, additional border-radius and shadow variants, and fade-in/slide-in animation keyframes.",
+  "frontend/src/hooks/useQueries.ts": "React Query mutation hooks for all six backend operations: generateBrandNames, generateLogoConcept, generateMarketingContent, analyzeSentiment, generateColorPalette, and askChatbot.",
+  "frontend/src/hooks/useSpeechRecognition.ts": "Custom React hook wrapping the Web Speech API using `any` types to avoid missing DOM type declarations, with start/stop recording, transcript state, error handling, and browser compatibility checks.",
+  "frontend/src/components/layout/Sidebar.tsx": "Responsive sidebar navigation with BizForge AI branding, icons for all 6 tools, active state gold highlighting, mobile overlay support, and AI engine status indicator.",
+  "frontend/src/components/layout/AppLayout.tsx": "Main layout shell combining the Sidebar with a hero header (using hero-bg asset), scrollable main content area, and footer with caffeine.ai attribution.",
+  "frontend/src/components/tools/BrandNameGenerator.tsx": "Brand Name Generator tool with Industry/Keywords/Tone form inputs, calls generateBrandNames backend, displays 15 results in a copyable grid with numbered badges.",
+  "frontend/src/components/tools/LogoConceptGenerator.tsx": "Logo Concept Generator with Brand Name/Industry/Personality inputs, calls generateLogoConcept, displays structured concept sections with color swatches.",
+  "frontend/src/components/tools/MarketingContentGenerator.tsx": "Marketing Content Generator with Brand Name/Description/Audience/Tone form, calls generateMarketingContent, displays product description, ad copy, and Instagram captions with copy buttons.",
+  "frontend/src/components/tools/SentimentAnalyzer.tsx": "Sentiment Analyzer with review textarea and example shortcuts, calls analyzeSentiment, displays color-coded Positive/Negative/Neutral result with explanation.",
+  "frontend/src/components/tools/ColorPaletteGenerator.tsx": "Color Palette Generator with Industry/Personality inputs, calls generateColorPalette, displays full palette preview strip and individual swatches with HEX codes and emotional meanings.",
+  "frontend/src/components/tools/BrandingChatbot.tsx": "BizForge AI chat interface with message history, structured response display (explanation/steps/tips), voice input via useSpeechRecognition, suggested questions, and loading indicators.",
+  "frontend/src/lib/utils.ts": "Utility function combining clsx and tailwind-merge for conditional className composition.",
+  "frontend/src/App.tsx": "Root application component managing active tool state, rendering AppLayout with Sidebar navigation and switching between all 6 tool views."
+}
