@@ -1,14 +1,15 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 11,
   "summary": "BizForge AI – a professional branding and marketing AI platform with multiple AI-powered tools including brand name generation, logo concept generation, marketing content creation, sentiment analysis, color palette generation, an AI branding chatbot, and voice input support.",
   "architectural_notes": [
     "All AI features use templated prompts with dynamic placeholders (e.g., {industry}, {tone}, {brand_name})",
     "BizForge AI chatbot serves as the core branding consultant persona across multiple features"
   ],
-  "known_issues": [],
+  "known_issues": [
+    "App failed to run after deploying visual logo output feature — rebuilding with simpler/lighter logo implementation"
+  ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- BizForge AI wordmark logo — bold stylized text with an abstract forge/flame icon in gold on a dark background (bizforge-logo.dim_400x120.png)\n- Hero background texture — dark charcoal abstract geometric pattern with subtle gold gradient highlights, suitable for app header (hero-bg.dim_1440x320.png)",
   "existing_features": [
     {
       "id": "feature-create-a-brand-name-generator-tool-that-accepts-three-inputs-industry-main-keywords-and-brand-tone-and-returns-15-unique-creative-short-1-2-word-easy-to-pronounce-modern-brand-name-suggestions-as-a-numbered-list-the-generation-logic-must-avoid-generic-terms-like-tech-solutions-or-company",
@@ -73,6 +74,46 @@
         "REQ-8"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-in-the-logo-concept-generator-tool-the-card-workspace-at-xpath-html-1-body-1-div-1-div-1-div-1-div-1-main-1-div-1-div-2-add-a-visual-logo-output-section-below-the-existing-text-concept-results-when-the-user-generates-a-logo-concept-display-a-rendered-visual-logo-image-composed-from-the-brand-inputs-use-the-brand-name-as-bold-typographic-text-apply-the-suggested-primary-and-secondary-colors-from-the-concept-as-background-and-text-fills-incorporate-the-icon-symbol-concept-as-a-simple-svg-shape-or-geometric-emblem-and-apply-the-recommended-font-style-render-this-as-an-inline-svg-or-canvas-element-styled-to-look-like-a-real-logo-lockup-icon-wordmark-provide-a-download-logo-button-that-exports-the-rendered-logo-as-a-png-file",
+      "title": "In the Logo Concept Generator tool (the card workspace at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[2]), add a visual logo output section below the existing text concept results. When the user generates a logo concept, display a rendered visual logo image composed from the brand inputs: use the brand name as bold typographic text, apply the suggested primary and secondary colors from the concept as background and text fills, incorporate the icon/symbol concept as a simple SVG shape or geometric emblem, and apply the recommended font style. Render this as an inline SVG or canvas element styled to look like a real logo lockup (icon + wordmark). Provide a 'Download Logo' button that exports the rendered logo as a PNG file.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rebuild-the-visual-logo-output-section-in-the-logo-concept-generator-logoconceptgenerator-tsx-with-a-simpler-lighter-implementation-that-is-stable-and-does-not-cause-the-app-to-fail-on-load-or-deploy-replace-the-previous-complex-svg-canvas-rendering-approach-with-a-straightforward-inline-svg-logo-lockup-that-uses-the-brand-name-as-bold-text-applies-primary-and-secondary-colors-from-the-concept-as-background-and-text-fills-and-includes-a-simple-geometric-icon-emblem-derived-from-the-brand-inputs-the-implementation-must-be-lightweight-and-avoid-heavy-computations-or-large-dependencies",
+      "title": "Rebuild the visual logo output section in the Logo Concept Generator (LogoConceptGenerator.tsx) with a simpler, lighter implementation that is stable and does not cause the app to fail on load or deploy. Replace the previous complex SVG/canvas rendering approach with a straightforward inline SVG logo lockup that uses the brand name as bold text, applies primary and secondary colors from the concept as background and text fills, and includes a simple geometric icon/emblem derived from the brand inputs. The implementation must be lightweight and avoid heavy computations or large dependencies.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-simplify-the-uselogorenderer-ts-hook-to-use-only-basic-svg-primitives-rect-circle-polygon-text-for-icon-shape-mapping-removing-any-complex-path-calculations-or-external-dependencies-that-could-cause-performance-or-build-issues",
+      "title": "Simplify the useLogoRenderer.ts hook to use only basic SVG primitives (rect, circle, polygon, text) for icon shape mapping, removing any complex path calculations or external dependencies that could cause performance or build issues.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-logo-concept-generator-tool-the-main-content-area-at-xpath-html-1-body-1-div-1-div-1-div-1-div-1-main-1-div-1-replace-the-single-visual-logo-output-with-a-multi-style-logo-showcase-that-renders-4-distinct-logo-style-variants-from-the-same-brand-inputs-1-wordmark-brand-name-styled-in-the-recommended-font-with-no-icon-background-filled-with-primary-color-2-lettermark-first-1-2-initials-of-the-brand-name-as-large-bold-type-centered-in-a-shaped-container-circle-or-square-using-primary-and-accent-colors-3-emblem-brand-name-text-inside-a-geometric-badge-shield-shape-incorporating-the-icon-symbol-concept-using-primary-and-secondary-colors-4-icon-wordmark-the-geometric-icon-emblem-placed-to-the-left-of-the-brand-name-text-both-on-a-dark-background-with-gold-accent-display-all-four-variants-as-a-2-2-responsive-grid-of-inline-svg-cards-each-labeled-with-its-style-name-below-the-preview",
+      "title": "In the Logo Concept Generator tool (the main content area at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]), replace the single visual logo output with a multi-style logo showcase that renders 4 distinct logo style variants from the same brand inputs: (1) Wordmark — brand name styled in the recommended font with no icon, background filled with primary color; (2) Lettermark — first 1–2 initials of the brand name as large bold type centered in a shaped container (circle or square) using primary and accent colors; (3) Emblem — brand name text inside a geometric badge/shield shape incorporating the icon/symbol concept, using primary and secondary colors; (4) Icon + Wordmark — the geometric icon/emblem placed to the left of the brand name text, both on a dark background with gold accent. Display all four variants as a 2×2 responsive grid of inline SVG cards, each labeled with its style name below the preview.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-logo-concept-generator-tool-the-card-workspace-at-xpath-html-1-body-1-div-1-div-1-div-1-div-1-main-1-div-1-div-2-replace-the-existing-4-variant-multi-style-logo-showcase-with-an-expanded-10-variant-logo-showcase-render-all-10-of-the-following-logo-style-variants-as-inline-svg-cards-using-the-same-brand-inputs-brand-name-primary-color-secondary-color-accent-color-icon-shape-font-style-1-wordmark-brand-name-in-recommended-font-background-filled-with-primary-color-no-icon-2-lettermark-first-1-2-initials-as-large-bold-type-in-a-circle-using-primary-and-accent-colors-3-emblem-brand-name-inside-a-geometric-badge-shield-shape-with-icon-symbol-using-primary-and-secondary-colors-4-icon-wordmark-geometric-icon-to-the-left-of-brand-name-text-on-dark-background-with-gold-accent-5-monogram-all-initials-stacked-or-overlapping-in-a-square-frame-using-primary-and-secondary-colors-6-abstract-mark-a-purely-geometric-abstract-svg-shape-derived-from-the-icon-concept-with-brand-name-as-a-small-caption-below-on-accent-color-background-7-mascot-style-badge-brand-name-inside-a-circular-badge-with-a-simple-stylized-icon-at-the-top-and-a-tagline-placeholder-at-the-bottom-using-all-brand-colors-8-stacked-wordmark-brand-name-split-into-two-lines-with-an-svg-divider-line-between-them-on-a-dark-background-with-primary-color-accent-9-negative-space-mark-icon-shape-rendered-as-a-cutout-white-shape-on-primary-color-background-with-brand-name-below-10-gradient-wordmark-brand-name-text-filled-with-a-linear-gradient-transitioning-from-primary-to-secondary-color-on-a-dark-background-display-all-10-variants-in-a-responsive-2-column-grid-of-inline-svg-cards-each-approximately-300-180px-each-labeled-with-its-style-name-below-the-preview-each-card-must-have-a-individual-download-button-that-exports-that-specific-svg-card-as-a-png-file",
+      "title": "In the Logo Concept Generator tool (the card workspace at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[2]), replace the existing 4-variant multi-style logo showcase with an expanded 10-variant logo showcase. Render all 10 of the following logo style variants as inline SVG cards using the same brand inputs (brand name, primary color, secondary color, accent color, icon shape, font style): (1) Wordmark — brand name in recommended font, background filled with primary color, no icon; (2) Lettermark — first 1–2 initials as large bold type in a circle using primary and accent colors; (3) Emblem — brand name inside a geometric badge/shield shape with icon symbol, using primary and secondary colors; (4) Icon + Wordmark — geometric icon to the left of brand name text on dark background with gold accent; (5) Monogram — all initials stacked or overlapping in a square frame using primary and secondary colors; (6) Abstract Mark — a purely geometric/abstract SVG shape derived from the icon concept, with brand name as a small caption below, on accent color background; (7) Mascot-Style Badge — brand name inside a circular badge with a simple stylized icon at the top and a tagline placeholder at the bottom, using all brand colors; (8) Stacked Wordmark — brand name split into two lines with an SVG divider line between them, on a dark background with primary color accent; (9) Negative Space Mark — icon shape rendered as a cutout (white shape on primary color background) with brand name below; (10) Gradient Wordmark — brand name text filled with a linear gradient transitioning from primary to secondary color on a dark background. Display all 10 variants in a responsive 2-column grid of inline SVG cards (each approximately 300×180px), each labeled with its style name below the preview. Each card must have a individual download button that exports that specific SVG card as a PNG file.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -115,6 +156,18 @@
     {
       "id": "AR-7",
       "summary": "Voice Input: converts speech to text and processes it through BizForge AI for branding responses",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Logo Output: generate actual visual logo images (not just text descriptions) based on brand inputs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Logo Output: support multiple different logo types/styles (e.g., wordmark, lettermark, emblem, icon+text) for the visual logo generator",
       "reqIds": [],
       "status": "pending"
     }
