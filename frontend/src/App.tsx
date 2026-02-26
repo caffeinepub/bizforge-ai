@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AppLayout } from './components/layout/AppLayout';
 import { Sidebar, ToolId } from './components/layout/Sidebar';
 import { BrandNameGenerator } from './components/tools/BrandNameGenerator';
-import { LogoConceptGenerator } from './components/tools/LogoConceptGenerator';
+import LogoConceptGenerator from './components/tools/LogoConceptGenerator';
 import { MarketingContentGenerator } from './components/tools/MarketingContentGenerator';
 import { SentimentAnalyzer } from './components/tools/SentimentAnalyzer';
 import { ColorPaletteGenerator } from './components/tools/ColorPaletteGenerator';

@@ -1,43 +1,41 @@
 {
   "kind": "build_request",
-  "title": "Expand logo showcase to 10 distinct logo style variants",
+  "title": "Fix broken 10-variant logo showcase in Logo Concept Generator",
   "projectName": "BizForge AI",
-  "priority": "normal",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-13",
-      "text": "In the Logo Concept Generator tool (the card workspace at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[2]), replace the existing 4-variant multi-style logo showcase with an expanded 10-variant logo showcase. Render all 10 of the following logo style variants as inline SVG cards using the same brand inputs (brand name, primary color, secondary color, accent color, icon shape, font style): (1) Wordmark — brand name in recommended font, background filled with primary color, no icon; (2) Lettermark — first 1–2 initials as large bold type in a circle using primary and accent colors; (3) Emblem — brand name inside a geometric badge/shield shape with icon symbol, using primary and secondary colors; (4) Icon + Wordmark — geometric icon to the left of brand name text on dark background with gold accent; (5) Monogram — all initials stacked or overlapping in a square frame using primary and secondary colors; (6) Abstract Mark — a purely geometric/abstract SVG shape derived from the icon concept, with brand name as a small caption below, on accent color background; (7) Mascot-Style Badge — brand name inside a circular badge with a simple stylized icon at the top and a tagline placeholder at the bottom, using all brand colors; (8) Stacked Wordmark — brand name split into two lines with an SVG divider line between them, on a dark background with primary color accent; (9) Negative Space Mark — icon shape rendered as a cutout (white shape on primary color background) with brand name below; (10) Gradient Wordmark — brand name text filled with a linear gradient transitioning from primary to secondary color on a dark background. Display all 10 variants in a responsive 2-column grid of inline SVG cards (each approximately 300×180px), each labeled with its style name below the preview. Each card must have a individual download button that exports that specific SVG card as a PNG file.",
+      "id": "REQ-14",
+      "text": "Diagnose and fix the 10-variant logo showcase in LogoConceptGenerator.tsx so that the application loads, runs, and deploys without errors. Audit the component and useLogoRenderer.ts hook for any runtime errors, invalid SVG constructs, broken download-to-PNG logic, or render-blocking code paths. Replace any unstable patterns with robust, lightweight equivalents using only basic SVG primitives (rect, circle, polygon, text, line, defs, linearGradient). Ensure all 10 logo variants (Wordmark, Lettermark, Emblem, Icon+Wordmark, Monogram, Abstract Mark, Mascot-Style Badge, Stacked Wordmark, Negative Space Mark, Gradient Wordmark) render correctly in a 2-column grid with per-card download buttons that export PNG files. The fix must not break any other tool in the application.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-latest"
         ],
         "quotes": [
-          "it can generate 10 different types of logos"
+          "it is not working"
         ]
       },
       "acceptanceCriteria": [
-        "The logo showcase section at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[2] displays exactly 10 distinct logo style variants after generating a logo concept",
-        "All 10 variants are rendered as inline SVG elements using the brand name, primary color, secondary color, accent color, icon shape, and font style from the generated concept",
-        "Each variant card is labeled with its style name (Wordmark, Lettermark, Emblem, Icon + Wordmark, Monogram, Abstract Mark, Mascot-Style Badge, Stacked Wordmark, Negative Space Mark, Gradient Wordmark)",
-        "The 10 cards are displayed in a responsive 2-column grid layout",
-        "Each card has its own download button that exports that card's SVG as a PNG file",
-        "The implementation uses only basic SVG primitives (rect, circle, polygon, text, line, linearGradient) without external dependencies",
-        "No performance or build issues are introduced by the expanded implementation"
+        "The application loads without a white screen, runtime error, or blank tool panel after navigating to the Logo Concept Generator.",
+        "Submitting valid brand inputs (brand name, industry, tone) triggers logo concept generation and renders all 10 SVG logo variant cards in the 2-column grid without any card being blank or throwing a React error.",
+        "Each of the 10 logo style variants displays the correct visual treatment as specified (Wordmark uses primary-color background, Lettermark uses initials in a circle, Gradient Wordmark uses a linearGradient fill, etc.).",
+        "Each card's individual download button exports a PNG file of that specific SVG card.",
+        "No other tool (Brand Name Generator, Marketing Content Generator, Sentiment Analyzer, Color Palette Generator, AI Branding Chatbot) is broken or visually degraded by the fix.",
+        "The application builds and deploys to production without compile or runtime errors.",
+        "useLogoRenderer.ts uses only basic SVG primitives and contains no complex path calculations or external dependencies that could cause build or performance issues."
       ]
     }
   ],
   "constraints": [
-    "Only modify the logo showcase section within the card workspace at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[2] — do not alter other parts of the Logo Concept Generator or any other tool",
-    "Use only basic SVG primitives (rect, circle, polygon, text, line, linearGradient, clipPath) — no heavy external libraries or complex path calculations",
-    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui"
+    "Do not modify any file under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Keep all SVG rendering client-side using only basic SVG primitives — no heavy libraries or canvas dependencies.",
+    "Do not alter the backend main.mo unless a backend bug is identified as the root cause of the failure."
   ],
   "nonGoals": [
-    "Changing the logo concept text description section above the visual output",
-    "Modifying any other tools (Brand Name Generator, Marketing Content, Sentiment Analyzer, Color Palette, Chatbot)",
-    "Adding new backend endpoints or changing backend logic",
-    "Adding AI-generated raster images or external image assets for logos",
-    "Changing the overall app layout, sidebar, or navigation"
+    "Adding new logo variant styles beyond the existing 10.",
+    "Changing the overall dark-themed branding studio UI design.",
+    "Modifying any tool other than the Logo Concept Generator unless required to prevent breakage."
   ],
   "imageRequirements": {
     "required": [],
