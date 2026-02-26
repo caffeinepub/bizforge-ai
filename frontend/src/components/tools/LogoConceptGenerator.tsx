@@ -44,7 +44,7 @@ function LogoCard({ variant, concept, brandName }: LogoCardProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="h-7 w-7 text-muted-foreground hover:text-gold-400"
+          className="h-7 w-7 text-muted-foreground hover:text-gold"
           onClick={handleDownload}
           title="Download PNG"
         >
@@ -80,8 +80,8 @@ export default function LogoConceptGenerator() {
       {/* Form */}
       <div className="bg-card border border-border rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-gold-500/10">
-            <Palette className="h-5 w-5 text-gold-400" />
+          <div className="p-2 rounded-lg bg-gold/10">
+            <Palette className="h-5 w-5 text-gold" />
           </div>
           <div>
             <h2 className="text-lg font-bold text-foreground">Logo Concept Generator</h2>
@@ -129,23 +129,26 @@ export default function LogoConceptGenerator() {
             </Select>
           </div>
 
-          <Button
+          <button
             type="submit"
             disabled={isPending || !brandName.trim() || !industry.trim()}
-            className="w-full bg-gold-500 hover:bg-gold-600 text-black font-semibold"
+            className="w-full mt-2 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all
+              bg-gold text-black hover:bg-gold-bright active:scale-[0.98]
+              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gold
+              shadow-gold"
           >
             {isPending ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <Loader2 className="h-4 w-4 animate-spin" />
                 Generating Concepts...
               </>
             ) : (
               <>
-                <Sparkles className="mr-2 h-4 w-4" />
-                Generate Logo Concepts
+                <Sparkles className="h-4 w-4" />
+                Generate Logo Concept
               </>
             )}
-          </Button>
+          </button>
         </form>
       </div>
 
@@ -160,9 +163,9 @@ export default function LogoConceptGenerator() {
       {concept && (
         <div className="space-y-6">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-gold-400" />
+            <Sparkles className="h-5 w-5 text-gold" />
             <h3 className="text-lg font-bold text-foreground">
-              10 Logo Variants for <span className="text-gold-400">{brandName}</span>
+              10 Logo Variants for <span className="text-gold">{brandName}</span>
             </h3>
           </div>
 
@@ -180,7 +183,7 @@ export default function LogoConceptGenerator() {
           {/* Concept Brief */}
           <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
             <h4 className="font-bold text-foreground flex items-center gap-2">
-              <Palette className="h-4 w-4 text-gold-400" />
+              <Palette className="h-4 w-4 text-gold" />
               Brand Concept Brief
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">

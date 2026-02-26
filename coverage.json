@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-26T08:52:22.040Z",
+  "generatedAt": "2026-02-26T09:03:02.563Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,15 +11,13 @@
     "implemented": 1,
     "items": [
       {
-        "id": "REQ-14",
-        "summary": "Diagnose and fix the 10-variant logo showcase in LogoConceptGenerator.tsx so that the application loads, runs, and deploys without errors. Audit the component and useLogoRenderer.ts hook for any runtime errors, invalid SVG constructs, broken download-to-PNG logic, or render-blocking code paths. Replace any unstable patterns with robust, lightweight equivalents using only basic SVG primitives (rect, circle, polygon, text, line, defs, linearGradient). Ensure all 10 logo variants (Wordmark, Lettermark, Emblem, Icon+Wordmark, Monogram, Abstract Mark, Mascot-Style Badge, Stacked Wordmark, Negative Space Mark, Gradient Wordmark) render correctly in a 2-column grid with per-card download buttons that export PNG files. The fix must not break any other tool in the application.",
+        "id": "REQ-15",
+        "summary": "In the Logo Concept Generator form at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/form[1], ensure a clearly visible 'Generate Logo Concept' submit button is present at the bottom of the form. The button must be styled consistently with the app's gold accent theme, be prominently labeled (e.g., 'Generate Logo Concept' or 'Generate Logo'), and trigger the logo concept generation and 10-variant logo showcase when clicked.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/hooks/useLogoRenderer.ts",
           "frontend/src/components/tools/LogoConceptGenerator.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/hooks/useLogoRenderer.ts",
           "frontend/src/components/tools/LogoConceptGenerator.tsx"
         ]
       }
@@ -30,9 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
     "frontend/src/components/tools/LogoConceptGenerator.tsx",
-    "frontend/src/hooks/useLogoRenderer.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

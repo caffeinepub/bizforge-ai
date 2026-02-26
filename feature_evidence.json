@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-diagnose-and-fix-the-10-variant-logo-showcase-in-logoconceptgenerator-tsx-so-that-the-application-loads-runs-and-deploys-without-errors-audit-the-component-and-uselogorenderer-ts-hook-for-any-runtime-errors-invalid-svg-constructs-broken-download-to-png-logic-or-render-blocking-code-paths-replace-any-unstable-patterns-with-robust-lightweight-equivalents-using-only-basic-svg-primitives-rect-circle-polygon-text-line-defs-lineargradient-ensure-all-10-logo-variants-wordmark-lettermark-emblem-icon-wordmark-monogram-abstract-mark-mascot-style-badge-stacked-wordmark-negative-space-mark-gradient-wordmark-render-correctly-in-a-2-column-grid-with-per-card-download-buttons-that-export-png-files-the-fix-must-not-break-any-other-tool-in-the-application",
-      "featureTitle": "Diagnose and fix the 10-variant logo showcase in LogoConceptGenerator.tsx so that the application loads, runs, and deploys without errors. Audit the component and useLogoRenderer.ts hook for any runtime errors, invalid SVG constructs, broken download-to-PNG logic, or render-blocking code paths. Replace any unstable patterns with robust, lightweight equivalents using only basic SVG primitives (rect, circle, polygon, text, line, defs, linearGradient). Ensure all 10 logo variants (Wordmark, Lettermark, Emblem, Icon+Wordmark, Monogram, Abstract Mark, Mascot-Style Badge, Stacked Wordmark, Negative Space Mark, Gradient Wordmark) render correctly in a 2-column grid with per-card download buttons that export PNG files. The fix must not break any other tool in the application.",
+      "featureId": "feature-in-the-logo-concept-generator-form-at-xpath-html-1-body-1-div-1-div-1-div-1-div-1-main-1-div-1-div-1-form-1-ensure-a-clearly-visible-generate-logo-concept-submit-button-is-present-at-the-bottom-of-the-form-the-button-must-be-styled-consistently-with-the-app-s-gold-accent-theme-be-prominently-labeled-e-g-generate-logo-concept-or-generate-logo-and-trigger-the-logo-concept-generation-and-10-variant-logo-showcase-when-clicked",
+      "featureTitle": "In the Logo Concept Generator form at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/form[1], ensure a clearly visible 'Generate Logo Concept' submit button is present at the bottom of the form. The button must be styled consistently with the app's gold accent theme, be prominently labeled (e.g., 'Generate Logo Concept' or 'Generate Logo'), and trigger the logo concept generation and 10-variant logo showcase when clicked.",
       "files": [
-        "frontend/src/components/tools/LogoConceptGenerator.tsx",
-        "frontend/src/hooks/useLogoRenderer.ts"
+        "frontend/src/components/tools/LogoConceptGenerator.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,7 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-14"
+        "REQ-15"
       ],
       "confidence": "high"
     }

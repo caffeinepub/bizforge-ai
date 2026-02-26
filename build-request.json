@@ -1,41 +1,40 @@
 {
   "kind": "build_request",
-  "title": "Fix broken 10-variant logo showcase in Logo Concept Generator",
+  "title": "Add visible Generate Logo button to Logo Concept Generator form",
   "projectName": "BizForge AI",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-14",
-      "text": "Diagnose and fix the 10-variant logo showcase in LogoConceptGenerator.tsx so that the application loads, runs, and deploys without errors. Audit the component and useLogoRenderer.ts hook for any runtime errors, invalid SVG constructs, broken download-to-PNG logic, or render-blocking code paths. Replace any unstable patterns with robust, lightweight equivalents using only basic SVG primitives (rect, circle, polygon, text, line, defs, linearGradient). Ensure all 10 logo variants (Wordmark, Lettermark, Emblem, Icon+Wordmark, Monogram, Abstract Mark, Mascot-Style Badge, Stacked Wordmark, Negative Space Mark, Gradient Wordmark) render correctly in a 2-column grid with per-card download buttons that export PNG files. The fix must not break any other tool in the application.",
+      "id": "REQ-15",
+      "text": "In the Logo Concept Generator form at XPath /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/form[1], ensure a clearly visible 'Generate Logo Concept' submit button is present at the bottom of the form. The button must be styled consistently with the app's gold accent theme, be prominently labeled (e.g., 'Generate Logo Concept' or 'Generate Logo'), and trigger the logo concept generation and 10-variant logo showcase when clicked.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-1"
         ],
         "quotes": [
-          "it is not working"
+          "where is the logo generate option"
         ]
       },
       "acceptanceCriteria": [
-        "The application loads without a white screen, runtime error, or blank tool panel after navigating to the Logo Concept Generator.",
-        "Submitting valid brand inputs (brand name, industry, tone) triggers logo concept generation and renders all 10 SVG logo variant cards in the 2-column grid without any card being blank or throwing a React error.",
-        "Each of the 10 logo style variants displays the correct visual treatment as specified (Wordmark uses primary-color background, Lettermark uses initials in a circle, Gradient Wordmark uses a linearGradient fill, etc.).",
-        "Each card's individual download button exports a PNG file of that specific SVG card.",
-        "No other tool (Brand Name Generator, Marketing Content Generator, Sentiment Analyzer, Color Palette Generator, AI Branding Chatbot) is broken or visually degraded by the fix.",
-        "The application builds and deploys to production without compile or runtime errors.",
-        "useLogoRenderer.ts uses only basic SVG primitives and contains no complex path calculations or external dependencies that could cause build or performance issues."
+        "The Logo Concept Generator form contains a clearly visible submit/generate button at the bottom of the form",
+        "The button is labeled with an obvious action label such as 'Generate Logo Concept' or 'Generate Logo'",
+        "The button is styled with the app's gold accent color consistent with other tool buttons",
+        "Clicking the button triggers the logo concept generation and renders the 10-variant logo showcase",
+        "The button shows a loading/disabled state while the generation is in progress",
+        "The button is not hidden, obscured, or visually indistinct from surrounding elements"
       ]
     }
   ],
   "constraints": [
-    "Do not modify any file under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
-    "Keep all SVG rendering client-side using only basic SVG primitives — no heavy libraries or canvas dependencies.",
-    "Do not alter the backend main.mo unless a backend bug is identified as the root cause of the failure."
+    "Do not modify any files listed in frontend.immutablePaths",
+    "Do not break any other tool in the application",
+    "Maintain the existing dark-themed gold accent design system"
   ],
   "nonGoals": [
-    "Adding new logo variant styles beyond the existing 10.",
-    "Changing the overall dark-themed branding studio UI design.",
-    "Modifying any tool other than the Logo Concept Generator unless required to prevent breakage."
+    "Changing the logo concept generation logic or backend",
+    "Modifying the 10-variant logo showcase output layout",
+    "Adding new form fields to the Logo Concept Generator"
   ],
   "imageRequirements": {
     "required": [],

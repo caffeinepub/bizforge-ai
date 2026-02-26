@@ -1,30 +1,24 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix broken 10-variant logo showcase in Logo Concept Generator",
+  "title": "Add visible Generate Logo button to Logo Concept Generator form",
   "requirements": [
     {
-      "id": "REQ-14",
-      "summary": "Diagnose and fix the 10-variant logo showcase so the application loads and runs without errors, with all logo variants rendering correctly and individual PNG download functionality working",
+      "id": "REQ-15",
+      "summary": "Add a clearly visible, prominently styled 'Generate Logo Concept' submit button to the bottom of the Logo Concept Generator form that triggers logo generation and displays the 10-variant showcase",
       "acceptanceCriteria": [
-        "The application loads without a white screen, runtime error, or blank tool panel after navigating to the Logo Concept Generator.",
-        "Submitting valid brand inputs (brand name, industry, tone) triggers logo concept generation and renders all 10 SVG logo variant cards in the 2-column grid without any card being blank or throwing a React error.",
-        "Each of the 10 logo style variants displays the correct visual treatment as specified (Wordmark uses primary-color background, Lettermark uses initials in a circle, Gradient Wordmark uses a linearGradient fill, etc.).",
-        "Each card's individual download button exports a PNG file of that specific SVG card.",
-        "No other tool (Brand Name Generator, Marketing Content Generator, Sentiment Analyzer, Color Palette Generator, AI Branding Chatbot) is broken or visually degraded by the fix.",
-        "The application builds and deploys to production without compile or runtime errors.",
-        "useLogoRenderer.ts uses only basic SVG primitives and contains no complex path calculations or external dependencies that could cause build or performance issues."
+        "The Logo Concept Generator form contains a clearly visible submit/generate button at the bottom of the form",
+        "The button is labeled with an obvious action label such as 'Generate Logo Concept' or 'Generate Logo'",
+        "The button is styled with the app's gold accent color consistent with other tool buttons",
+        "Clicking the button triggers the logo concept generation and renders the 10-variant logo showcase",
+        "The button shows a loading/disabled state while the generation is in progress",
+        "The button is not hidden, obscured, or visually indistinct from surrounding elements"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/hooks/useLogoRenderer.ts",
-          "operation": "modify",
-          "description": "Audit and fix the useLogoRenderer hook to ensure all 10 logo variant renderers use only basic SVG primitives (rect, circle, polygon, text, line, defs, linearGradient). Replace any unstable patterns, complex path calculations, or error-prone constructs with robust, lightweight equivalents. Ensure each variant renderer (Wordmark, Lettermark, Emblem, Icon+Wordmark, Monogram, Abstract Mark, Mascot-Style Badge, Stacked Wordmark, Negative Space Mark, Gradient Wordmark) returns valid SVG JSX that renders without throwing React errors. Add defensive checks for missing or malformed concept data."
-        },
-        {
           "path": "frontend/src/components/tools/LogoConceptGenerator.tsx",
           "operation": "modify",
-          "description": "Audit and fix the LogoConceptGenerator component to ensure it renders all 10 logo variants in a 2-column grid layout without runtime errors. Fix any broken download-to-PNG logic in the per-card download buttons to ensure each button correctly exports a PNG file of its specific SVG card using client-side conversion (e.g., canvas-based approach or inline SVG serialization). Add error boundaries or null checks to prevent blank cards or white screens. Ensure the component handles loading, error, and success states gracefully and does not block rendering."
+          "description": "Add a submit button element at the bottom of the form (after the Tone select field) with the text 'Generate Logo Concept'. Style the button with gold accent background (bg-[oklch(var(--gold-accent))]), white text, rounded corners, padding, hover effects, and disabled state styling. Ensure the button is type='submit' so it triggers the existing handleSubmit handler. Add disabled={isLoading} to prevent multiple submissions and conditionally render a loading spinner or 'Generating...' text when isLoading is true. Position the button prominently with sufficient margin-top spacing from the form fields above it."
         }
       ]
     }
